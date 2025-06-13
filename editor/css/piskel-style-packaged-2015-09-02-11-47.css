@@ -3127,3 +3127,19 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
   -moz-box-sizing : border-box;
   cursor : pointer;
 }
+
+.logo-block {
+  margin: 6px 6px 0;
+  padding: 6px;
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-block img {
+  max-width: 100%;
+  height: auto;
+}
