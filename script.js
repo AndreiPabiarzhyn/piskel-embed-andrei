@@ -16,11 +16,13 @@
         }
       });
     }
+
+    setupBrushSizeButtons();
   };
 
   var loadSprite = function (sprite) {
     var editorFrameEl = document.querySelector(".editor-frame");
-    var pskl = editorFrameEl.contentWindow.pskl;
+    var pskl = editorFrameEl?.contentWindow?.pskl;
     if (pskl) {
       var fps = sprite.piskel.fps;
       var piskel = sprite.piskel;
@@ -34,23 +36,29 @@
   };
 
   // Brush size selector
-  window.selectedBrushSize = 1;
-
   function setupBrushSizeButtons() {
     const buttons = document.querySelectorAll('.brush-size');
+    if (!buttons.length) return;
+
     buttons.forEach(button => {
       button.addEventListener('click', () => {
-        window.selectedBrushSize = parseInt(button.dataset.size, 10);
-        console.log('Selected brush size:', window.selectedBrushSize);
-
+        const size = parseInt(button.dataset.size, 10);
         buttons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
 
+        // Сохраняем выбранный размер
+        window.selectedBrushSize = size;
+
         const editorFrameEl = document.querySelector('.editor-frame');
-        if (editorFrameEl && editorFrameEl.contentWindow.pskl) {
-          const tool = editorFrameEl.contentWindow.pskl.app.toolController.getCurrentTool();
-          if (tool && tool.setBrushSize) {
-            tool.setBrushSize(window.selectedBrushSize);
+        const pskl = editorFrameEl?.contentWindow?.pskl;
+        if (pskl && pskl.app && pskl.app.toolController) {
+          const tool = pskl.app.toolController.getCurrentTool();
+          if (tool) {
+            if (typeof tool.setLineWidth === 'function') {
+              tool.setLineWidth(size); // Pencil tool
+            } else if (typeof tool.setBrushSize === 'function') {
+              tool.setBrushSize(size); // Другие кастомные
+            }
           }
         }
       });
@@ -58,5 +66,4 @@
   }
 
   init();
-  setupBrushSizeButtons();
 })();
