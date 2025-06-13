@@ -8,12 +8,14 @@
 
   var init = function () {
     var sidebarEl = document.querySelector(".sidebar");
-    sidebarEl.addEventListener("click", function (evt) {
-      var spriteName = evt.target.dataset.sprite;
-      if (spriteName && sprites[spriteName]) {
-        loadSprite(sprites[spriteName]);
-      }
-    });
+    if (sidebarEl) {
+      sidebarEl.addEventListener("click", function (evt) {
+        var spriteName = evt.target.dataset.sprite;
+        if (spriteName && sprites[spriteName]) {
+          loadSprite(sprites[spriteName]);
+        }
+      });
+    }
   };
 
   var loadSprite = function (sprite) {
@@ -29,8 +31,32 @@
         pskl.app.previewController.setFPS(fps);
       });
     }
-
   };
 
+  // Brush size selector
+  window.selectedBrushSize = 1;
+
+  function setupBrushSizeButtons() {
+    const buttons = document.querySelectorAll('.brush-size');
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        window.selectedBrushSize = parseInt(button.dataset.size, 10);
+        console.log('Selected brush size:', window.selectedBrushSize);
+
+        buttons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const editorFrameEl = document.querySelector('.editor-frame');
+        if (editorFrameEl && editorFrameEl.contentWindow.pskl) {
+          const tool = editorFrameEl.contentWindow.pskl.app.toolController.getCurrentTool();
+          if (tool && tool.setBrushSize) {
+            tool.setBrushSize(window.selectedBrushSize);
+          }
+        }
+      });
+    });
+  }
+
   init();
+  setupBrushSizeButtons();
 })();
