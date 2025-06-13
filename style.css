@@ -30,3 +30,20 @@ ul, li {
   height: 100%;
   border: none;
 }
+
+.custom-logo {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 60px;
+  height: 60px;
+  z-index: 1000;
+  background: none;
+}
+
+.custom-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
