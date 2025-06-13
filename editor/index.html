@@ -7,6 +7,24 @@
   <meta name="description" content="">
   <meta name="author" content="Julian Descottes">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    .custom-logo {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: 50px;
+      height: 50px;
+      z-index: 9999;
+      pointer-events: none; /* не блокирует клики */
+    }
+
+    .custom-logo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <div
@@ -78,10 +96,12 @@
   <iframe src="templates/misc-templates.html" onload="iframeloader.onLoad(event)" data-iframe-loader="display"></iframe>
   <iframe src="templates/popup-preview.html" onload="iframeloader.onLoad(event)" data-iframe-loader="display"></iframe>
 
+  <!-- Логотип -->
+  <div class="custom-logo">
+    <img src="https://s3.ru-1.storage.selcloud.ru/production_kodland_main_public/task_description_materials/44d761e4-6b69-4583-b853-b4ac749c5681.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=353dc593148344f49dee011061633995%2F20250613%2Fru-1%2Fs3%2Faws4_request&X-Amz-Date=20250613T081549Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=037abece951ff0023c581a0b4ad916b292d840514196a3d089ec28d1abf6ff2e" alt="Logo">
+  </div>
+
   <script type="text/javascript" src="piskel-boot.js"></script>
   <!--body-main-end-->
-  <!-- the comment above indicates the end of the markup reused by the editor integrated in piskelapp.com -->
-  <!-- do not delete, do not move :) -->
-
 </body>
 </html>
