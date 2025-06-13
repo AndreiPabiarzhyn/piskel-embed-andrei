@@ -6,8 +6,8 @@ html, body {
 }
 
 ul, li {
-  margin : 0;
-  padding : 0;
+  margin: 0;
+  padding: 0;
   list-style-type: none;
 }
 
@@ -31,19 +31,29 @@ ul, li {
   border: none;
 }
 
-.custom-logo {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  width: 60px;
-  height: 60px;
-  z-index: 1000;
-  background: none;
+/* Логотип в правой колонке */
+.logo-wrapper {
+  padding: 10px 8px 6px;
+  box-sizing: border-box;
+  text-align: right;
 }
 
-.custom-logo img {
-  width: 100%;
+.logo-wrapper img {
+  max-width: 80px;
   height: auto;
-  display: block;
+  opacity: 0.95;
+  transition: transform 0.2s ease-in-out;
 }
 
+/* Масштабирование логотипа на маленьких экранах */
+@media (max-width: 1024px) {
+  .logo-wrapper img {
+    max-width: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo-wrapper img {
+    max-width: 45px;
+  }
+}
