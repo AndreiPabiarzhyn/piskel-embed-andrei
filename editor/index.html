@@ -9,20 +9,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    .custom-logo {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      width: 50px;
-      height: 50px;
-      z-index: 9999;
-      pointer-events: none; /* не блокирует клики */
+    .logo-wrapper {
+      padding: 10px 8px 6px;
+      box-sizing: border-box;
+      text-align: right;
     }
 
-    .custom-logo img {
-      width: 100%;
+    .logo-wrapper img {
+      max-width: 80px;
       height: auto;
-      display: block;
+      opacity: 0.95;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    @media (max-width: 1024px) {
+      .logo-wrapper img {
+        max-width: 60px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .logo-wrapper img {
+        max-width: 45px;
+      }
     }
   </style>
 </head>
@@ -64,6 +73,12 @@
         <iframe src="templates/layers-list.html" onload="iframeloader.onLoad(event)" data-iframe-loader="display"></iframe>
         <iframe src="templates/transformations.html" onload="iframeloader.onLoad(event)" data-iframe-loader="display"></iframe>
         <iframe src="templates/palettes-list.html" onload="iframeloader.onLoad(event)" data-iframe-loader="display"></iframe>
+        
+        <!-- Логотип внутри правой панели -->
+        <div class="logo-wrapper">
+          <img src="https://s3.ru-1.storage.selcloud.ru/production_kodland_main_public/task_description_materials/44d761e4-6b69-4583-b853-b4ac749c5681.svg" alt="Kodland logo">
+        </div>
+
         <div class="pull-bottom cursor-coordinates"></div>
       </div>
     </div>
@@ -95,11 +110,6 @@
   <iframe src="templates/cheatsheet.html" onload="iframeloader.onLoad(event)" data-iframe-loader="display"></iframe>
   <iframe src="templates/misc-templates.html" onload="iframeloader.onLoad(event)" data-iframe-loader="display"></iframe>
   <iframe src="templates/popup-preview.html" onload="iframeloader.onLoad(event)" data-iframe-loader="display"></iframe>
-
-  <!-- Логотип -->
-  <div class="custom-logo">
-    <img src="https://s3.ru-1.storage.selcloud.ru/production_kodland_main_public/task_description_materials/44d761e4-6b69-4583-b853-b4ac749c5681.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=353dc593148344f49dee011061633995%2F20250613%2Fru-1%2Fs3%2Faws4_request&X-Amz-Date=20250613T081549Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=037abece951ff0023c581a0b4ad916b292d840514196a3d089ec28d1abf6ff2e" alt="Logo">
-  </div>
 
   <script type="text/javascript" src="piskel-boot.js"></script>
   <!--body-main-end-->
