@@ -3143,3 +3143,27 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
   max-width: 100%;
   height: auto;
 }
+
+.right-column {
+  vertical-align: top;
+  margin-left: 10px;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-slot {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-slot img {
+  max-width: 120px;
+  height: auto;
+  display: block;
+  opacity: 0.95;
+}
+
