@@ -31,33 +31,3 @@ ul, li {
   border: none;
 }
 
-/* Логотип в правой колонке */
-.logo-wrapper {
-  width: 100%;
-  padding: 10px 0;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1e1e1e; /* чтобы отделить от координат, можешь убрать */
-}
-
-.logo-wrapper img {
-  width: 100%;
-  max-width: 280px;
-  height: auto;
-  transform: scale(1.5);
-}
-
-@media (max-width: 1024px) {
-  .logo-wrapper img {
-    max-width: 120px;
-  }
-}
-
-@media (max-width: 600px) {
-  .logo-wrapper img {
-    max-width: 90px;
-  }
-}
-
