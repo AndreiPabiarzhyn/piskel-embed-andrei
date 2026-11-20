@@ -16,8 +16,6 @@
         }
       });
     }
-
-    setupBrushSizeButtons();
   };
 
   var loadSprite = function (sprite) {
@@ -34,36 +32,6 @@
       });
     }
   };
-
-  // Brush size selector
-  function setupBrushSizeButtons() {
-    const buttons = document.querySelectorAll('.brush-size');
-    if (!buttons.length) return;
-
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        const size = parseInt(button.dataset.size, 10);
-        buttons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        // Сохраняем выбранный размер
-        window.selectedBrushSize = size;
-
-        const editorFrameEl = document.querySelector('.editor-frame');
-        const pskl = editorFrameEl?.contentWindow?.pskl;
-        if (pskl && pskl.app && pskl.app.toolController) {
-          const tool = pskl.app.toolController.getCurrentTool();
-          if (tool) {
-            if (typeof tool.setLineWidth === 'function') {
-              tool.setLineWidth(size); // Pencil tool
-            } else if (typeof tool.setBrushSize === 'function') {
-              tool.setBrushSize(size); // Другие кастомные
-            }
-          }
-        }
-      });
-    });
-  }
 
   init();
 })();

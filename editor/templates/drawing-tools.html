@@ -1,15 +1,13 @@
 <div class="sticky-section left-sticky-section" id="tool-section">
   <div class="sticky-section-wrap">
     <div class="vertical-centerer">
-      <ul id="tools-container" class="tools-wrapper">
-        <div class="brush-size-selector">
-          <div class="brush-size" data-size="1">1</div>
-          <div class="brush-size" data-size="2">2</div>
-          <div class="brush-size" data-size="3">3</div>
-          <div class="brush-size" data-size="4">4</div>
-        </div>
-        <!-- Drawing tools will be inserted here -->
-      </ul>
+      <div class="brush-size-selector" role="group" aria-label="Brush size">
+        <button type="button" class="brush-size" data-size="1" aria-pressed="true" aria-label="Brush size 1 px" title="1 px"></button>
+        <button type="button" class="brush-size" data-size="2" aria-pressed="false" aria-label="Brush size 2 px" title="2 px"></button>
+        <button type="button" class="brush-size" data-size="3" aria-pressed="false" aria-label="Brush size 3 px" title="3 px"></button>
+        <button type="button" class="brush-size" data-size="4" aria-pressed="false" aria-label="Brush size 4 px" title="4 px"></button>
+      </div>
+      <ul id="tools-container" class="tools-wrapper"></ul>
       <div class="palette-wrapper">
         <div
           class="tool-icon tool-color-picker"

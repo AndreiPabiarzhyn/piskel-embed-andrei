@@ -3169,25 +3169,35 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
 .brush-size-selector {
   display: flex;
   justify-content: center;
-  margin: 10px 0;
+  gap: 3px;
+  margin: 0 0 6px;
 }
 
 .brush-size {
-  width: 20px;
-  height: 20px;
-  margin: 0 3px;
-  border: 2px solid #888;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: 21px;
+  height: 21px;
+  padding: 0;
+  border: 2px solid #444;
+  background: #303030;
+  color: white;
   cursor: pointer;
-  background-color: #333;
-  border-radius: 3px;
 }
 
-.brush-size[data-size="1"] { box-shadow: inset 0 0 0 1px gold; }
-.brush-size[data-size="2"] { box-shadow: inset 0 0 0 2px gold; }
-.brush-size[data-size="3"] { box-shadow: inset 0 0 0 3px gold; }
-.brush-size[data-size="4"] { box-shadow: inset 0 0 0 4px gold; }
+.brush-size::before {
+  content: '';
+  width: var(--brush-mark-size, 6px);
+  height: var(--brush-mark-size, 6px);
+  background: currentColor;
+}
 
-.brush-size.selected {
+.brush-size[data-size="2"] { --brush-mark-size: 8px; }
+.brush-size[data-size="3"] { --brush-mark-size: 10px; }
+.brush-size[data-size="4"] { --brush-mark-size: 12px; }
+
+.brush-size[aria-pressed="true"] {
   border-color: gold;
+  color: gold;
 }
-
